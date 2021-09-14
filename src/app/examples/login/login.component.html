@@ -2,7 +2,7 @@
     <div class="container">
         <div class="col-md-4 content-center">
             <div class="card card-login card-plain">
-                <form method="post" [formGroup]="loginForm">
+                <form method="post">
                     <div class="header header-primary text-center">
                         <div class="logo-container">
                             <img src="https://demos.creative-tim.com/now-ui-kit/assets/img/now-logo.png" alt="">
@@ -10,9 +10,9 @@
                     </div>
                     <div class="content">
                         <div class="input-group form-group-no-border input-lg">
-                            <div class="input-group-prepend">
-
-                            </div>
+                        <div class="input-group-prepend">
+                        <span class="input-group-text"></span>
+                    </div>
                             <input type="number" class="form-control" placeholder="Enter phone" formControlName="phoneNumber" >
                         </div>
                         <div class="input-group form-group-no-border input-lg" *ngIf="showOtp">
