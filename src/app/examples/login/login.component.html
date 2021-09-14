@@ -2,7 +2,7 @@
     <div class="container">
         <div class="col-md-4 content-center">
             <div class="card card-login card-plain">
-                <form class="form">
+                <form method="post" [formGroup]="loginForm">
                     <div class="header header-primary text-center">
                         <div class="logo-container">
                             <img src="https://demos.creative-tim.com/now-ui-kit/assets/img/now-logo.png" alt="">
@@ -11,49 +11,23 @@
                     <div class="content">
                         <div class="input-group form-group-no-border input-lg">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"> <i class="now-ui-icons users_circle-08"></i></span>
+
                             </div>
-                            <input type="number" class="form-control" placeholder="Enter phone" id="phoneNumber" >
+                            <input type="number" class="form-control" placeholder="Enter phone" formControlName="phoneNumber" >
                         </div>
                         <div class="input-group form-group-no-border input-lg" *ngIf="showOtp">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="now-ui-icons text_caps-small"></i></span>
+                                <span class="input-group-text"></span>
                             </div>
-                            <input type="number" placeholder="Enter Otp" class="form-control"  id="otp"/>
+                            <input type="number" placeholder="Enter Otp" class="form-control"  formControlName="otp"/>
                         </div>
                     </div>
                     <div class="footer text-center">
-                        <button class="btn btn-primary btn-default btn-lg btn-block" (click)="sendOtp()">{{statusMessage}}</button>
+                        <button class="btn btn-primary btn-default btn-lg btn-block" (click)="login()">{{statusMessage}}</button>
                     </div>
 
                 </form>
             </div>
         </div>
     </div>
-    <footer class="footer">
-        <div class="container">
-            <nav>
-                <ul>
-                    <li>
-                        <a href="#">
-                            About Us
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Contact Us
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Terms and Conditions
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="copyright">
-                &copy;{{data | date: 'yyyy'}} .All Rights Reserved
-            </div>
-        </div>
-    </footer>
 </div>
