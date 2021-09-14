@@ -49,8 +49,8 @@ export class LoginComponent implements OnInit {
         this.service.post('user/send-otp', data).subscribe(
           res => {
             if (res) {
-              this.data.push(res);
-              if (this.data[0].message === 'OTP Sended') {
+              this.result.push(res);
+              if (this.result[0].message === 'OTP Sended') {
                 this.showOtp = true;
                 this.loginForm.get('phoneNumber').disable();
                 this.statusMessage = 'Validate Otp';
@@ -71,35 +71,35 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  sendOtp(){
-     // Verify the OTP send.
-     if (this.showOtp && this.loginForm.get("otp").value != null) {
+  sendOtp() {
+    // Verify the OTP send.
+    if (this.showOtp && this.loginForm.get('otp').value != null) {
       var data = {
-        otp: this.loginForm.get("otp").value,
-        phoneCode: "+91",
-        phoneNumber: this.loginForm.get("phoneNumber").value
+        otp: this.loginForm.get('otp').value,
+        phoneCode: '+91',
+        phoneNumber: this.loginForm.get('phoneNumber').value
       };
 
-      this.service.post("user/verify-otp", data).subscribe(
-        (res) => {
+      this.service.post('user/verify-otp', data).subscribe(
+        res => {
           if (res) {
-            this.data = []; //empty data response array
-            this.data.push(res);
-            if (this.data[0].message === "OTP Verified") {
-              if (this.data[0].isNewUser) {
+            this.result = []; //empty data response array
+            this.result.push(res);
+            if (this.result[0].message === 'OTP Verified') {
+              if (this.result[0].isNewUser) {
                 //
                 this.newUser = true;
                 this.showOtp = false;
               }
-              localStorage.setItem("isLoggedIn", "true");
-              localStorage.setItem("token", this.data[0].token); //auth token
-              this.router.navigate(["/dashboard"]);
+              localStorage.setItem('isLoggedIn', 'true');
+              localStorage.setItem('token', this.result[0].token); //auth token
+              this.router.navigate(['/dashboard']);
             } else {
-              alert(this.data[0].message);
+              alert(this.result[0].message);
             }
           }
         },
-        (err) => {
+        err => {
           alert(err);
         }
       );
