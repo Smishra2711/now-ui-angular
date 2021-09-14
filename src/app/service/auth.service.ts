@@ -19,11 +19,11 @@ export class AuthService {
   redirectUrl: string;
 
   login(email, password) {
-    return this.auth.signInWithEmailAndPassword(email, password);
+    return null;
   }
 
   register(email, password) {
-    return this.auth.createUserWithEmailAndPassword(email, password);
+    return null;
   }
 
   logout() {
