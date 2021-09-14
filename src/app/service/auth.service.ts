@@ -13,7 +13,7 @@ export class AuthService {
   SpreadSheetId: string;
   userRole: string;
 
-  constructor() {}
+  constructor(private service: MasterService) {}
 
   // store the URL so we can redirect after logging in
   redirectUrl: string;

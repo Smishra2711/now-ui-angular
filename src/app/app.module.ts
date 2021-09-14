@@ -10,6 +10,8 @@ import { ExamplesModule } from './examples/examples.module';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+import { AuthService } from './service/auth.service';
+import { MasterService } from './service/master.service';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent],
@@ -24,7 +26,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
     ComponentsModule,
     ExamplesModule
   ],
-  providers: [],
+  providers: [MasterService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
