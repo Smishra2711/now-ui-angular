@@ -2,7 +2,7 @@
     <div class="container">
         <div class="col-md-4 content-center">
             <div class="card card-login card-plain">
-                <form class="form" [formGroup]="loginForm">
+                <form class="form">
                     <div class="header header-primary text-center">
                         <div class="logo-container">
                             <img src="https://demos.creative-tim.com/now-ui-kit/assets/img/now-logo.png" alt="">
@@ -13,13 +13,13 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="now-ui-icons users_circle-08"></i></span>
                             </div>
-                            <input type="number" class="form-control" placeholder="Enter phone" formControlName="phoneNumber" >
+                            <input type="number" class="form-control" placeholder="Enter phone" id="phoneNumber" >
                         </div>
                         <div class="input-group form-group-no-border input-lg" *ngIf="showOtp">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="now-ui-icons text_caps-small"></i></span>
                             </div>
-                            <input type="number" placeholder="Enter Otp" class="form-control"  formControlName="otp"/>
+                            <input type="number" placeholder="Enter Otp" class="form-control"  id="otp"/>
                         </div>
                     </div>
                     <div class="footer text-center">

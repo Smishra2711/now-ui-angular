@@ -30,11 +30,6 @@ export class LoginComponent implements OnInit {
 
     var navbar = document.getElementsByTagName('nav')[0];
     navbar.classList.add('hidden');
-
-    this.loginForm = this.fb.group({
-      phoneNumber: ['', Validators.required],
-      otp: ['']
-    });
   }
 
   ngOnDestroy() {
@@ -49,6 +44,7 @@ export class LoginComponent implements OnInit {
     //Verify the login form
     if (!this.showOtp) {
       this.statusMessage = 'loading...';
+      var ph
       if (this.loginForm.get('phoneNumber').value != null) {
         var data = {
           phoneCode: '+91',
